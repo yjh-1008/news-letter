@@ -29,6 +29,8 @@ const Title = styled.div`
     text-center
     font-bold
     text-3xl
+    relative
+    animate-[fade-up_1s]
   `}
 `
 
@@ -41,9 +43,13 @@ const Logo = styled.div`
   height: 100px;
 `
 const MainText = styled.div`
+  ${tw`
+      animate-[fade-slow-up_1s]
+  `}
   font-size: 2rem;
   font-weight: bold;
   flex-grow: 1;
+  position: relative;
 `
 
 export default function HomePage() {

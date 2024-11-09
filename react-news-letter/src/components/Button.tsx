@@ -9,23 +9,31 @@ const TwButton = styled.button`
     border-none
     text-white
     px-2
-    h-[30px]
+    h-full
     text-center
     rounded-md
     overflow-hidden
     cursor-pointer
-    bg-blue-500
   `}
+  ${
+    props => 
+      props.disabled ? tw`bg-gray-500` : tw`bg-blue-500`
+  }
 `
 interface Props {
   leftChild?: React.ReactNode
   text: string
   onClick: React.MouseEventHandler<HTMLButtonElement>
+  disabled: boolean
   rightChild?: React.ReactNode
 }
 
-export default function Button({leftChild, text, onClick, rightChild}:Props) {
+export default function Button({leftChild, text, onClick, rightChild, disabled=false}:Props) {
   return (
-    <TwButton onClick={onClick}>{text}</TwButton>
+    <TwButton onClick={onClick} disabled={disabled}>
+      {leftChild}
+      <div>{text}</div>
+      {rightChild}
+    </TwButton>
   )
 }

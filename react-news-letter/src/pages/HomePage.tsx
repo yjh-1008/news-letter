@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import MailIcon from '@/assets/email.png'
 import Button from '../components/Button';
+import { useNavigate } from 'react-router-dom';
 const Container = styled.div`
   ${tw`
     absolute
@@ -53,12 +54,13 @@ const MainText = styled.div`
 `
 
 export default function HomePage() {
+  const navigate = useNavigate();
   return (
     <Container>
       <Logo />
       <Title>Develetter</Title>
       <MainText>나의 커리어 정보를 손쉽게 받아보세요!</MainText>
-      <Button text={"클릭"} onClick={() => {}} />
+      <Button text={"클릭"} onClick={() => navigate('/question/1')} />
       <div>
         깃허브, 이메일, 블로그
       </div>

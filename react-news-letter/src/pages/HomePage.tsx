@@ -60,7 +60,9 @@ export default function HomePage() {
       <Logo />
       <Title>Develetter</Title>
       <MainText>나의 커리어 정보를 손쉽게 받아보세요!</MainText>
+      <div className="h-[30px]">
       <Button text={"클릭"} onClick={() => navigate('/question/1')} />
+      </div>
       <div>
         깃허브, 이메일, 블로그
       </div>

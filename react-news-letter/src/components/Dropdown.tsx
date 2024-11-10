@@ -23,20 +23,25 @@ export default function Dropdown({
     setVisible(!visible);
   }
   return (
-    <article className="relative">
+    <article className="relative z-0">
       <div className="h-7 border rounded border-black " onClick={onListClick}>{selectItem.value}</div>
-      <ul className="w-full top-7 absolute overflow-hidden border-black">
-        <div className={`transition-all duration-[150ms] ${visible ? ' translate-y-[0%]' : 'translate-y-[-100px]'}`}>
-          <div className={`bg-white border border-black w-full`}>
-            {list.map((listItem) => 
-              <DropdownListItem
-                item= {listItem} 
-                onItemClick={onListItemClick} 
-              />
-            )}
-          </div>
-        </div>
-      </ul>
+        {
+        visible &&
+          (
+            <ul className="w-full top-7 absolute z-10 overflow-hidden border-black">
+              <div className={`animate-[fade-down_0.5s]`}>
+                <div className={`bg-white border border-black w-full`}>
+                  {list.map((listItem) => 
+                    <DropdownListItem
+                      item= {listItem} 
+                      onItemClick={onListItemClick} 
+                    />
+                  )}
+                </div>
+              </div>
+          </ul>
+          )
+        }
     </article>
   )
 }
